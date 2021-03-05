@@ -25,10 +25,10 @@ function getColor() {
 function changeColor() {
   const intervalId = setInterval(() => {
     getColor();
-    startRef.removeEventListener('click', changeColor);
+    startRef.setAttribute('disabled', null);
     stopRef.addEventListener('click', () => {
       clearInterval(intervalId);
-      startRef.addEventListener('click', changeColor);
+      startRef.removeAttribute('disabled');
     });
   }, 1000);
 }
